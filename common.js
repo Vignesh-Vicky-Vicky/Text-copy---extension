@@ -47,7 +47,7 @@ function resolve(type, arg, seqState) {
   }
 }
 
-function render(tpl, seqState) {
+function renderTemplate(tpl, seqState) {
   return tpl.replace(/\{\{\s*([a-zA-Z]+)\s*(?:\/([^}]*))?\}\}/g, (m, type, arg) => {
     const v = resolve(type.toLowerCase(), arg === undefined ? '' : arg.trim(), seqState);
     return v === null ? m : v;
@@ -57,7 +57,7 @@ function render(tpl, seqState) {
 function generateFromPreset(p) {
   const count = Math.min(100, Math.max(1, parseInt(p.count, 10) || 1));
   const seqState = {};
-  return Array.from({ length: count }, () => render(p.template || '', seqState)).join('\n');
+  return Array.from({ length: count }, () => renderTemplate(p.template || '', seqState)).join('\n');
 }
 
 // ---- storage: { presets: [{id,name,template,count}], defaultId } ----
