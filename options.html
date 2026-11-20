@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Template Generator – Config</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="options">
+  <div class="page-head">
+    <img src="icons/icon128.png" alt="">
+    <h1>Template Generator</h1>
+  </div>
+  <p class="muted">Create configs. The default one is preselected in the popup and used by the shortcut. Changes save automatically.</p>
+
+  <div id="list"></div>
+  <div class="actions">
+    <button id="add" class="primary">Add config</button>
+    <span id="saved" class="status"></span>
+  </div>
+
+  <h2>Keyboard shortcuts</h2>
+  <p class="muted">Alt+Shift+C copies the default config. Configs #1, #2 and #3 (their order above) can each get their own key. A green check appears on the toolbar icon when text is copied.</p>
+  <button id="shortcuts">Set shortcuts</button>
+
+  <h2>Placeholders</h2>
+  <p class="muted">Use these inside a template. Unknown placeholders are left as typed.</p>
+  <table>
+    <tr><td><code>{{number/8}}</code></td><td>random 8-digit number</td></tr>
+    <tr><td><code>{{number/1-100}}</code></td><td>number in a range</td></tr>
+    <tr><td><code>{{digits/6}}</code></td><td>digits, may start with 0</td></tr>
+    <tr><td><code>{{alpha/6}}</code><code>{{lower/6}}</code><code>{{upper/6}}</code></td><td>random letters</td></tr>
+    <tr><td><code>{{alnum/10}}</code><code>{{hex/8}}</code></td><td>letters and digits, or hex</td></tr>
+    <tr><td><code>{{uuid}}</code></td><td>UUID v4</td></tr>
+    <tr><td><code>{{date}}</code><code>{{date/DD-MM-YYYY}}</code></td><td>today, with optional format (YYYY YY MM DD HH mm ss)</td></tr>
+    <tr><td><code>{{time}}</code><code>{{datetime}}</code><code>{{timestamp}}</code></td><td>current time, date and time, or Unix ms</td></tr>
+    <tr><td><code>{{name}}</code><code>{{email}}</code><code>{{phone}}</code></td><td>fake test data</td></tr>
+    <tr><td><code>{{pick/open,closed,blocked}}</code></td><td>random item from a list</td></tr>
+    <tr><td><code>{{seq}}</code><code>{{seq/100}}</code></td><td>counter across lines (1, 2, 3… or from 100)</td></tr>
+    <tr><td><code>{{lorem/5}}</code></td><td>5 lorem ipsum words</td></tr>
+  </table>
+  <script src="common.js"></script>
+  <script src="anim.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
